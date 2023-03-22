@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: 1s;
+        }
+
+        body {
+            background-image: url(assets/Content/slider_01.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .slider {
+            width: 1200px;
+            height: 650px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .main0 {
+            width: 79%;
+            height: 100%;
+            background-position: left center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            border: 2px solid white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transition: 1s;
+        }
+
+
+        .main1,
+        .main2,
+        .main3 {
+            width: 79%;
+            height: 100%;
+            background-position: left center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: -100%;
+            transition: 1s;
+        }
+
+        .main1 {
+            background-image: url(assets/Content/1.jpg);
+        }
+
+        .main2 {
+            background-image: url(assets/Content/2.jpg);
+        }
+
+        .main3 {
+            background-image: url(assets/Content/3.jpg);
+        }
+
+
+        input {
+            display: none !important;
+        }
+
+        label {
+            width: 20%;
+            height: 30%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2px solid rgb(215, 214, 214);
+            cursor: pointer;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        label:nth-of-type(1) {
+            background-image: url(assets/Content/1.jpg);
+        }
+
+        label:nth-of-type(2) {
+            background-image: url(assets/Content/2.jpg);
+            top: 35%;
+        }
+
+        label:nth-of-type(3) {
+            background-image: url(assets/Content/3.jpg);
+            top: 70%;
+            z-index: 100;
+        }
+
+
+
+        #img1:checked~.main1 {
+            left: 0;
+        }
+
+        #img2:checked~.main2 {
+            left: 0;
+        }
+
+        #img3:checked~.main3 {
+            left: 0;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .text1,
+        .text2,
+        .text3 {
+            width: 100%;
+            color: white;
+            font-size: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: 1s;
+            transition-delay: 1s;
+            position: absolute;
+            top: 540px;
+            left: -100px;
+        }
+
+
+        #img1:checked~.text1 {
+            opacity: 1;
+            left: 80px;
+        }
+
+        #img2:checked~.text2 {
+            opacity: 1;
+            left: 80px;
+        }
+
+        #img3:checked~.text3 {
+            opacity: 1;
+            left: 80px;
+        }
+
+
+        #img1:checked~.text2,
+        #img1:checked~.text3 {
+            transition-delay: 0s;
+        }
+
+
+        #img2:checked~.text1,
+        #img2:checked~.text3 {
+            transition-delay: 0s;
+        }
+
+        #img3:checked~.text1,
+        #img3:checked~.text2 {
+            transition-delay: 0s;
+        }
+
+
+
+
+
+
+        /* aventador details */
+
+        .text1-1 {
+            position: absolute;
+            top: 660px;
+            left: 80px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.5s;
+            font-weight: 100;
+        }
+
+        .text1-2 {
+            position: absolute;
+            top: 660px;
+            left: 320px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.7s;
+            font-weight: 100;
+        }
+
+        .text1-3 {
+            position: absolute;
+            top: 660px;
+            left: 550px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.9s;
+            font-weight: 100;
+        }
+
+        #img1:checked~.text1-4 {
+            transition-delay: 0s;
+        }
+
+        #img1:checked~.text1-5 {
+            transition-delay: 0s;
+        }
+
+        #img1:checked~.text1-6 {
+            transition-delay: 0s;
+        }
+
+        #img1:checked~.text1-7 {
+            transition-delay: 0s;
+        }
+
+        #img1:checked~.text1-8 {
+            transition-delay: 0s;
+        }
+
+        #img1:checked~.text1-9 {
+            transition-delay: 0s;
+        }
+
+
+        #img1:checked~.text1-1 {
+            opacity: 1;
+            top: 600px;
+        }
+
+        #img1:checked~.text1-2 {
+            opacity: 1;
+            top: 600px;
+        }
+
+        #img1:checked~.text1-3 {
+            opacity: 1;
+            top: 600px;
+        }
+
+
+
+
+
+        /* urus details */
+        .text1-4 {
+            position: absolute;
+            top: 660px;
+            left: 80px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.5s;
+            font-weight: 100;
+        }
+
+        .text1-5 {
+            position: absolute;
+            top: 660px;
+            left: 320px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.7s;
+            font-weight: 100;
+        }
+
+        .text1-6 {
+            position: absolute;
+            top: 660px;
+            left: 550px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.9s;
+            font-weight: 100;
+        }
+
+
+        #img2:checked~.text1-1 {
+            transition-delay: 0s;
+        }
+
+        #img2:checked~.text1-2 {
+            transition-delay: 0s;
+        }
+
+        #img2:checked~.text1-3 {
+            transition-delay: 0s;
+        }
+
+        #img2:checked~.text1-7 {
+            transition-delay: 0s;
+        }
+
+        #img2:checked~.text1-8 {
+            transition-delay: 0s;
+        }
+
+        #img2:checked~.text1-9 {
+            transition-delay: 0s;
+        }
+
+
+
+        #img2:checked~.text1-4 {
+            opacity: 1;
+            top: 600px;
+        }
+
+        #img2:checked~.text1-5 {
+            opacity: 1;
+            top: 600px;
+        }
+
+        #img2:checked~.text1-6 {
+            opacity: 1;
+            top: 600px;
+        }
+
+
+
+
+
+
+
+
+        /* huracan details */
+
+        .text1-7 {
+            position: absolute;
+            top: 660px;
+            left: 80px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.5s;
+            font-weight: 100;
+        }
+
+        .text1-8 {
+            position: absolute;
+            top: 660px;
+            left: 320px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.7s;
+            font-weight: 100;
+        }
+
+        .text1-9 {
+            position: absolute;
+            top: 660px;
+            left: 550px;
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+            opacity: 0;
+            transition: 2s;
+            transition-delay: 1.9s;
+            font-weight: 100;
+        }
+
+
+        #img3:checked~.text1-1 {
+            transition-delay: 0s;
+        }
+
+        #img3:checked~.text1-2 {
+            transition-delay: 0s;
+        }
+
+        #img3:checked~.text1-3 {
+            transition-delay: 0s;
+        }
+
+        #img3:checked~.text1-4 {
+            transition-delay: 0s;
+        }
+
+        #img3:checked~.text1-5 {
+            transition-delay: 0s;
+        }
+
+        #img3:checked~.text1-6 {
+            transition-delay: 0s;
+        }
+
+        #img3:checked~.text1-7 {
+            opacity: 1;
+            top: 600px;
+        }
+
+        #img3:checked~.text1-8 {
+            opacity: 1;
+            top: 600px;
+        }
+
+        #img3:checked~.text1-9 {
+            opacity: 1;
+            top: 600px;
+        }
+
+
+
+
+
+
+        /* thumbnails transparent */
+
+        label:nth-of-type(1)::after {
+            content: " ";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.836);
+            opacity: 0;
+            transition: 1s;
+            position: absolute;
+        }
+
+        label:nth-of-type(2)::after {
+            content: " ";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.836);
+            transition: 1s;
+            opacity: 0;
+            position: absolute;
+        }
+
+        label:nth-of-type(3)::after {
+            content: " ";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.836);
+            transition: 1s;
+            opacity: 0;
+            position: absolute;
+        }
+
+
+        #img1:checked~label:nth-of-type(1)::after {
+            opacity: 0;
+        }
+
+        #img1:checked~label:nth-of-type(2)::after,
+        #img1:checked~label:nth-of-type(3)::after {
+            opacity: 1;
+        }
+
+
+
+        #img2:checked~label:nth-of-type(2)::after {
+            opacity: 0;
+        }
+
+        #img2:checked~label:nth-of-type(1)::after,
+        #img2:checked~label:nth-of-type(3)::after {
+            opacity: 1;
+        }
+
+
+
+        #img3:checked~label:nth-of-type(3)::after {
+            opacity: 0;
+        }
+
+        #img3:checked~label:nth-of-type(1)::after,
+        #img3:checked~label:nth-of-type(2)::after {
+            opacity: 1;
+        }
+
+
+
+        /* scaling */
+        #img1:checked~label:nth-of-type(1) {
+            scale: 0.9;
+        }
+
+        #img2:checked~label:nth-of-type(2) {
+            scale: 0.9;
+        }
+
+        #img3:checked~label:nth-of-type(3) {
+            scale: 0.9;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="slider">
+
+        <input type="radio" id="img1" name="img">
+        <input type="radio" id="img2" name="img">
+        <input type="radio" id="img3" name="img">
+
+        <label for="img1"></label>
+        <label for="img2"></label>
+        <label for="img3"></label>
+
+        <div class="main0"></div>
+        <div class="main1"></div>
+        <div class="main2"></div>
+        <div class="main3"></div>
+
+        <span class="text1">
+            aventador lp780-ultimate
+        </span>
+
+        <span class="text2">
+            urus performance
+        </span>
+
+        <span class="text3">
+            huracan sterrato
+        </span>
+
+        <span class="text1-1">
+            max. speed <br> 355km/h
+        </span>
+
+        <span class="text1-2">
+            0-100 km/h <br> 2.8s
+        </span>
+
+        <span class="text1-3">
+            power (cv) / power (kw) <br> 780cv(574kw) at 8,500 rpm
+        </span>
+
+
+
+
+        <span class="text1-4">
+            max. speed <br> 306km/h
+        </span>
+
+        <span class="text1-5">
+            0-100 km/h <br> 3.3s
+        </span>
+
+        <span class="text1-6">
+            power (cv) / power (kw) <br> 666cv(490kw) at 8,500 rpm
+        </span>
+
+
+
+
+
+
+        <span class="text1-7">
+            max. speed <br> 260km/h
+        </span>
+
+        <span class="text1-8">
+            0-100 km/h <br> 3.4s
+        </span>
+
+        <span class="text1-9">
+            power (cv) / power (kw) <br> 610cv(449kw) at 8,500 rpm
+        </span>
+
+
+    </div>
+</body>
+
+</html>
